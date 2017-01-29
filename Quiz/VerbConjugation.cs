@@ -10,49 +10,49 @@ namespace Quiz
    public class VerbConjugation
    {
       [XmlAttribute]
-      public string name
+      public string Name
       {
          get;
          set;
       }
 
       [XmlAttribute]
-      public string io
+      public string Io
       {
          get;
          set;
       }
 
       [XmlAttribute]
-      public string tu
+      public string Tu
       {
          get;
          set;
       }
 
       [XmlAttribute]
-      public string lui
+      public string Lui
       {
          get;
          set;
       }
 
       [XmlAttribute]
-      public string noi
+      public string Noi
       {
          get;
          set;
       }
 
       [XmlAttribute]
-      public string voi
+      public string Voi
       {
          get;
          set;
       }
 
       [XmlAttribute]
-      public string loro
+      public string Loro
       {
          get;
          set;

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary>
+  <Words>
+    <Recognized>
+      <Word>io</Word>
+    </Recognized>
+    <Recognized>
+      <Word>tu</Word>
+    </Recognized>
+    <Recognized>
+      <Word>lui</Word>
+    </Recognized>
+    <Recognized>
+      <Word>noi</Word>
+    </Recognized>
+    <Recognized>
+      <Word>voi</Word>
+    </Recognized>
+    <Recognized>
+      <Word>loro</Word>
+    </Recognized>
+
+    <!--
+    <Unrecognized>
+      <Word>knokker</Word>
+    </Unrecognized>
+    <Deprecated>
+      <Term PreferredAlternate=""></Term>
+    </Deprecated>
+    <Compound>
+      <Term CompoundAlternate=""></Term>
+    </Compound>
+    <DiscreteExceptions>
+      <Term></Term>
+    </DiscreteExceptions>
+    -->
+  </Words>
+  <!--<Acronyms>
+    <CasingExceptions>
+      <Acronym></Acronym>
+    </CasingExceptions>
+  </Acronyms>-->
+</Dictionary>

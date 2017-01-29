@@ -10,6 +10,10 @@ namespace Quiz
    public class PresentIndicative
    {
       [XmlArray("VerbConjugations")]
-      public VerbConjugation[] VerbConjugations;
+      public VerbConjugation[] VerbConjugations
+      {
+         get;
+         set;
+      }
    }
 }

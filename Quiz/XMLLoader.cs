@@ -8,12 +8,12 @@ using System.Xml.Serialization;
 
 namespace Quiz
 {
-   class XMLLoader
+   static class XMLLoader
    {
       static public T Load<T>(string fileName)
       {
          // get the PresentIndicative resource stream
-         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Quiz.XML.PresentIndicative.xml");
+         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Quiz.XML." + fileName);
 
          // get our verbs
          XmlSerializer serializer = new XmlSerializer(
