@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Quiz/obj/Debug/TempPE
+/Quiz/obj/Debug
+/Quiz/bin/Debug
+/Quiz.v12.suo

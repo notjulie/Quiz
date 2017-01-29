@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PresentIndicative>
+  <VerbConjugations>
+    <VerbConjugation name="avere"
+        io="ho"
+        tu="hai"
+        lui="ha"
+        noi="abbiamo"
+        voi="avete"
+        loro="hanno"
+      />
+    <VerbConjugation name="essere"
+        io="sono"
+        tu="sei"
+        lui="è"
+        noi="siamo"
+        voi="siete"
+        loro="sono"
+      />
+  </VerbConjugations>
+</PresentIndicative>
