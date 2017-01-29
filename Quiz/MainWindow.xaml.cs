@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Quiz.XmlModel;
+
 namespace Quiz
 {
    /// <summary>
@@ -34,6 +36,7 @@ namespace Quiz
       void MainWindow_Loaded(object sender, RoutedEventArgs e)
       {
          PresentIndicative pi = XMLLoader.Load<PresentIndicative>("PresentIndicative.xml");
+         Adverbs adverbs = XMLLoader.Load<Adverbs>("Adverbs.xml");
          verbConjugationControl.DataContext = pi.VerbConjugations[0];
       }
 

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
+using Quiz.XmlModel;
+
 namespace Quiz
 {
    static class XMLLoader

@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Quiz
+namespace Quiz.XmlModel
 {
    /// <summary>
-   /// Class representation of the PresentIndicative.xml resource file
+   /// The class representation of the XML Adverbs element
    /// </summary>
-   public class PresentIndicative
+   public class Adverbs
    {
       /// <summary>
       /// Gets or sets the verb conjugations
       /// </summary>
-      [XmlArray("VerbConjugations")]
-      public VerbConjugation[] VerbConjugations
+      [XmlArray("AdverbList")]
+      public Adverb[] AdverbList
       {
          get;
          set;

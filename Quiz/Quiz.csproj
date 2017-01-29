@@ -63,7 +63,9 @@
     <Compile Include="Controls\VerbConjugationControl.xaml.cs">
       <DependentUpon>VerbConjugationControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VerbConjugation.cs" />
+    <Compile Include="XmlModel\Adverb.cs" />
+    <Compile Include="XmlModel\Adverbs.cs" />
+    <Compile Include="XmlModel\VerbConjugation.cs" />
     <Compile Include="XMLLoader.cs" />
     <Page Include="Controls\TextEntry.xaml">
       <SubType>Designer</SubType>
@@ -87,7 +89,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PresentIndicative.cs" />
+    <Compile Include="XmlModel\PresentIndicative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,6 +123,9 @@
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Adverbs.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
