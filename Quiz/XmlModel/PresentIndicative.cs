@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +13,18 @@ namespace Quiz.XmlModel
    /// </summary>
    public class PresentIndicative
    {
+      private Collection<VerbConjugation> verbConjugations = new Collection<VerbConjugation>();
+
       /// <summary>
       /// Gets or sets the verb conjugations
       /// </summary>
       [XmlArray("VerbConjugations")]
-      public VerbConjugation[] VerbConjugations
+      public Collection<VerbConjugation> VerbConjugations
       {
-         get;
-         set;
+         get
+         {
+            return verbConjugations;
+         }
       }
    }
 }

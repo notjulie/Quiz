@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +13,18 @@ namespace Quiz.XmlModel
    /// </summary>
    public class Adverbs
    {
+      private Collection<Adverb> adverbList = new Collection<Adverb>();
+
       /// <summary>
       /// Gets or sets the verb conjugations
       /// </summary>
       [XmlArray("AdverbList")]
-      public Adverb[] AdverbList
+      public Collection<Adverb> AdverbList
       {
-         get;
-         set;
+         get
+         {
+            return adverbList;
+         }
       }
    }
 }
