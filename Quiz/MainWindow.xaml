@@ -4,6 +4,6 @@
         xmlns:controls="clr-namespace:Quiz.Controls"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <controls:VerbConjugationControl x:Name="verbConjugationControl"/>        
+        <ContentControl Name="itemContainer"/>
     </Grid>
 </Window>

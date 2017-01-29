@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\SimpleTranslationControl.xaml.cs">
+      <DependentUpon>SimpleTranslationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextEntry.xaml.cs">
       <DependentUpon>TextEntry.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     <Compile Include="XmlModel\Adverbs.cs" />
     <Compile Include="XmlModel\VerbConjugation.cs" />
     <Compile Include="XMLLoader.cs" />
+    <Page Include="Controls\SimpleTranslationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TextEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
