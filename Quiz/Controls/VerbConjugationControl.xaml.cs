@@ -20,6 +20,9 @@ namespace Quiz.Controls
    /// </summary>
    public partial class VerbConjugationControl : UserControl
    {
+      /// <summary>
+      /// Initializes a new instance of class VerbConjugationControl
+      /// </summary>
       public VerbConjugationControl()
       {
          InitializeComponent();

@@ -20,11 +20,20 @@ namespace Quiz.Controls
    /// </summary>
    public partial class TextEntry : UserControl
    {
-      static DependencyProperty ExpectedValueProperty = DependencyProperty.Register("ExpectedValue", typeof(string), typeof(TextEntry), new PropertyMetadata());
+      #region Private Fields
+
+      private static DependencyProperty ExpectedValueProperty = DependencyProperty.Register("ExpectedValue", typeof(string), typeof(TextEntry), new PropertyMetadata());
 
       private Brush correctBrush = new SolidColorBrush(Colors.Red);
       private Brush incorrectBrush = new SolidColorBrush(Colors.Black);
 
+      #endregion
+
+      #region Constructor
+
+      /// <summary>
+      /// Initializes a new instance of class TextEntry
+      /// </summary>
       public TextEntry()
       {
          // normal initialization
@@ -35,23 +44,13 @@ namespace Quiz.Controls
          entryText.MouseDoubleClick += entryText_MouseDoubleClick;
       }
 
-      void entryText_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-      {
-         entryText.Text = ExpectedValue;
-      }
+      #endregion
 
-      protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
-      {
-         if (e.Property == ExpectedValueProperty)
-            UpdateControl();
-         base.OnPropertyChanged(e);
-      }
+      #region Public Properties
 
-      void entryText_TextChanged(object sender, TextChangedEventArgs e)
-      {
-         UpdateControl();
-      }
-
+      /// <summary>
+      /// Gets or sets the title string
+      /// </summary>
       public string Title
       {
          get
@@ -64,6 +63,9 @@ namespace Quiz.Controls
          }
       }
 
+      /// <summary>
+      /// Gets or sets the expected value
+      /// </summary>
       public string ExpectedValue
       {
          get
@@ -76,6 +78,39 @@ namespace Quiz.Controls
          }
       }
 
+      #endregion
+
+      #region Protected Methods
+
+      /// <summary>
+      /// Takes action when a dependency property changes
+      /// </summary>
+      /// <param name="e">details of the event</param>
+      protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+      {
+         if (e.Property == ExpectedValueProperty)
+            UpdateControl();
+         base.OnPropertyChanged(e);
+      }
+
+      #endregion
+
+      #region Event Handlers
+
+      void entryText_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+      {
+         entryText.Text = ExpectedValue;
+      }
+
+      void entryText_TextChanged(object sender, TextChangedEventArgs e)
+      {
+         UpdateControl();
+      }
+
+      #endregion
+
+      #region Private Methods
+
       private void UpdateControl()
       {
          if (entryText.Text == ExpectedValue)
@@ -83,5 +118,7 @@ namespace Quiz.Controls
          else
             entryText.Foreground = incorrectBrush;
       }
+
+      #endregion
    }
 }
