@@ -23,7 +23,8 @@ namespace Quiz
 
       public object GetRandomItem()
       {
-         return allItems[random.Next(allItems.Count - 1)];
+         int nextIndex = random.Next(allItems.Count);
+         return allItems[nextIndex];
       }
    }
 }
