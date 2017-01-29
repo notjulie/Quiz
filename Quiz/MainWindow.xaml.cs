@@ -85,7 +85,7 @@ namespace Quiz
                   break;
 
                default:
-                  throw new Exception("MainWindow.ShowItem: unsupported item type: " + item.GetType().Name);
+                  throw new QuizException("unsupported item type: " + item.GetType().Name);
             }
 
             itemControl.DataContext = item;

@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Quiz Code Analysis Rules" Description="Quiz Code Analysis Rules" ToolsVersion="12.0">
   <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1031" Action="None" />
+  </Rules>
 </RuleSet>
