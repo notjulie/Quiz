@@ -23,6 +23,12 @@ namespace Quiz
    /// </summary>
    public partial class MainWindow : Window
    {
+      #region Private Fields
+
+      private LanguageData languageData = null;
+
+      #endregion
+
       #region Constructor
 
       /// <summary>
@@ -42,12 +48,19 @@ namespace Quiz
 
       void MainWindow_Loaded(object sender, RoutedEventArgs e)
       {
-         // load our language data
-         PresentIndicative pi = XMLLoader.Load<PresentIndicative>("PresentIndicative.xml");
-         Adverbs adverbs = XMLLoader.Load<Adverbs>("Adverbs.xml");
+         try
+         {
+            // load our language data
+            languageData = new LanguageData();
 
-         // spew up the first adverb for now
-         ShowItem(adverbs.AdverbList[0]);
+            // spew up a random item
+            ShowItem(languageData.GetRandomItem());
+         }
+         catch (Exception x)
+         {
+            MessageBox.Show(x.Message);
+            Close();
+         }
       }
 
       #endregion
@@ -65,6 +78,10 @@ namespace Quiz
             {
                case "Adverb":
                   itemControl = new SimpleTranslationControl();
+                  break;
+
+               case "VerbConjugation":
+                  itemControl = new VerbConjugationControl();
                   break;
 
                default:

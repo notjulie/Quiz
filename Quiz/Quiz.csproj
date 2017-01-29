@@ -72,6 +72,7 @@
     <Compile Include="Controls\VerbConjugationControl.xaml.cs">
       <DependentUpon>VerbConjugationControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LanguageData.cs" />
     <Compile Include="XmlModel\Adverb.cs" />
     <Compile Include="XmlModel\Adverbs.cs" />
     <Compile Include="XmlModel\VerbConjugation.cs" />
