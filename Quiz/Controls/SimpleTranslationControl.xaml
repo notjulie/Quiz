@@ -11,6 +11,6 @@
             <Label Content="English: "/>
             <Label Content="{Binding English}"/>
         </StackPanel>
-        <controls:TextEntry Title="Italian" ExpectedValue="{Binding Italian}"  Margin="5"/>
+        <controls:TextEntry x:Name="textEntry" Title="Italian" ExpectedValue="{Binding Italian}"  Margin="5"/>
     </StackPanel>
 </UserControl>

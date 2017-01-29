@@ -26,6 +26,7 @@ namespace Quiz.Controls
 
       private Brush correctBrush = new SolidColorBrush(Colors.Red);
       private Brush incorrectBrush = new SolidColorBrush(Colors.Black);
+      private TextEntryState textEntryState = TextEntryState.Unanswered;
 
       #endregion
 
@@ -46,7 +47,54 @@ namespace Quiz.Controls
 
       #endregion
 
-      #region Public Properties
+      #region Public Properties / Events
+
+      /// <summary>
+      /// Event fired when the TextEntryState property changes
+      /// </summary>
+      public event EventHandler<EventArgs> TextEntryStateChanged;
+
+      /// <summary>
+      /// Gets or sets the expected value
+      /// </summary>
+      public string ExpectedValue
+      {
+         get
+         {
+            return (string)GetValue(ExpectedValueProperty);
+         }
+         set
+         {
+            // set the propery value
+            SetValue(ExpectedValueProperty, value);
+
+            // this clears our state
+            textEntryState = TextEntryState.Unanswered;
+
+            // but then we need to check the state
+            UpdateControl();
+         }
+      }
+
+      /// <summary>
+      /// Gets the text entry state
+      /// </summary>
+      public TextEntryState TextEntryState
+      {
+         get
+         {
+            return textEntryState;
+         }
+         private set
+         {
+            if (value != textEntryState)
+            {
+               textEntryState = value;
+               if (TextEntryStateChanged != null)
+                  TextEntryStateChanged(this, EventArgs.Empty);
+            }
+         }
+      }
 
       /// <summary>
       /// Gets or sets the title string
@@ -60,21 +108,6 @@ namespace Quiz.Controls
          set
          {
             title.Content = value;
-         }
-      }
-
-      /// <summary>
-      /// Gets or sets the expected value
-      /// </summary>
-      public string ExpectedValue
-      {
-         get
-         {
-            return (string)GetValue(ExpectedValueProperty);
-         }
-         set
-         {
-            SetValue(ExpectedValueProperty, value);
          }
       }
 
@@ -99,6 +132,12 @@ namespace Quiz.Controls
 
       void entryText_MouseDoubleClick(object sender, MouseButtonEventArgs e)
       {
+         // if the answer is already correct, ignore this
+         if (textEntryState == TextEntryState.Correct)
+            return;
+
+         // else cheat
+         this.TextEntryState = TextEntryState.Cheated;
          entryText.Text = ExpectedValue;
       }
 
@@ -114,9 +153,15 @@ namespace Quiz.Controls
       private void UpdateControl()
       {
          if (entryText.Text == ExpectedValue)
+         {
             entryText.Foreground = correctBrush;
+            if (textEntryState != TextEntryState.Cheated)
+               this.TextEntryState = TextEntryState.Correct;
+         }
          else
+         {
             entryText.Foreground = incorrectBrush;
+         }
       }
 
       #endregion

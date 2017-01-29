@@ -63,12 +63,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\IUserEntryControl.cs" />
     <Compile Include="Controls\SimpleTranslationControl.xaml.cs">
       <DependentUpon>SimpleTranslationControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextEntry.xaml.cs">
       <DependentUpon>TextEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TextEntryState.cs" />
     <Compile Include="Controls\VerbConjugationControl.xaml.cs">
       <DependentUpon>VerbConjugationControl.xaml</DependentUpon>
     </Compile>

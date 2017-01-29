@@ -18,7 +18,7 @@ namespace Quiz.Controls
    /// <summary>
    /// Interaction logic for SimpleTranslationControl.xaml
    /// </summary>
-   public partial class SimpleTranslationControl : UserControl
+   public partial class SimpleTranslationControl : UserControl, IUserEntryControl
    {
       /// <summary>
       /// Initializes a new instance of class SimpleTranslationControl
@@ -28,6 +28,29 @@ namespace Quiz.Controls
          InitializeComponent();
 
          Loaded += SimpleTranslationControl_Loaded;
+         textEntry.TextEntryStateChanged += textEntry_TextEntryStateChanged;
+      }
+
+      void textEntry_TextEntryStateChanged(object sender, EventArgs e)
+      {
+         if (TextEntryStateChanged != null)
+            TextEntryStateChanged(this, EventArgs.Empty);
+      }
+
+      /// <summary>
+      /// Event fired when the text entry state changes
+      /// </summary>
+      public event EventHandler<EventArgs> TextEntryStateChanged;
+
+      /// <summary>
+      /// Gets the text entry state
+      /// </summary>
+      public TextEntryState TextEntryState
+      {
+         get
+         {
+            return textEntry.TextEntryState;
+         }
       }
 
       void SimpleTranslationControl_Loaded(object sender, RoutedEventArgs e)

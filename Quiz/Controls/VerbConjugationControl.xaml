@@ -9,10 +9,10 @@
     <StackPanel Width="200">
         <Label Content="{Binding Name}" FontSize="18"/>
         <controls:TextEntry x:Name="io" Title="io" ExpectedValue="{Binding Io}"  Margin="5"/>
-        <controls:TextEntry Title="tu" ExpectedValue="{Binding Tu}"  Margin="5"/>
-        <controls:TextEntry Title="lui" ExpectedValue="{Binding Lui}"  Margin="5"/>
-        <controls:TextEntry Title="noi" ExpectedValue="{Binding Noi}"  Margin="5"/>
-        <controls:TextEntry Title="voi" ExpectedValue="{Binding Voi}"  Margin="5"/>
-        <controls:TextEntry Title="loro" ExpectedValue="{Binding Loro}"  Margin="5"/>
+        <controls:TextEntry x:Name="tu" Title="tu" ExpectedValue="{Binding Tu}"  Margin="5"/>
+        <controls:TextEntry x:Name="lui" Title="lui" ExpectedValue="{Binding Lui}"  Margin="5"/>
+        <controls:TextEntry x:Name="noi" Title="noi" ExpectedValue="{Binding Noi}"  Margin="5"/>
+        <controls:TextEntry x:Name="voi" Title="voi" ExpectedValue="{Binding Voi}"  Margin="5"/>
+        <controls:TextEntry x:Name="loro" Title="loro" ExpectedValue="{Binding Loro}"  Margin="5"/>
     </StackPanel>
 </UserControl>

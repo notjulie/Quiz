@@ -46,6 +46,27 @@ namespace Quiz
 
       #region Event Handlers
 
+      void itemTextEntryStateChanged(object sender, EventArgs e)
+      {
+         IUserEntryControl control = itemContainer.Content as IUserEntryControl;
+         if (control != null)
+         {
+            switch (control.TextEntryState)
+            {
+               case TextEntryState.Unanswered:
+                  break;
+
+               case TextEntryState.Cheated:
+                  NextQuestion();
+                  break;
+
+               case TextEntryState.Correct:
+                  NextQuestion();
+                  break;
+            }
+         }
+      }
+
       void MainWindow_Loaded(object sender, RoutedEventArgs e)
       {
          try
@@ -67,10 +88,22 @@ namespace Quiz
 
       #region Private Methods
 
+      private void NextQuestion()
+      {
+         // spew up a random item
+         ShowItem(languageData.GetRandomItem());
+      }
+
       private void ShowItem(object item)
       {
          try
          {
+            // get rid of the previous item
+            IUserEntryControl previousItem = itemContainer.Content as IUserEntryControl;
+            if (previousItem != null)
+               previousItem.TextEntryStateChanged -= itemTextEntryStateChanged;
+            itemContainer.Content = null;
+
             FrameworkElement itemControl;
 
             // create the child control according to the object type
@@ -88,6 +121,10 @@ namespace Quiz
                   throw new QuizException("unsupported item type: " + item.GetType().Name);
             }
 
+            // install it
+            IUserEntryControl userEntryControl = itemControl as IUserEntryControl;
+            if (userEntryControl != null)
+               userEntryControl.TextEntryStateChanged += this.itemTextEntryStateChanged;
             itemControl.DataContext = item;
             itemContainer.Content = itemControl;
          }
