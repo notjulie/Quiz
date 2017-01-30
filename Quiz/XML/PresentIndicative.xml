@@ -17,5 +17,13 @@
         Voi="siete"
         Loro="sono"
       />
+    <VerbConjugation Name="potere"
+        Io="posso"
+        Tu="puoi"
+        Lui="può"
+        Noi="possiamo"
+        Voi="potete"
+        Loro="possono"
+      />
   </VerbConjugations>
 </PresentIndicative>

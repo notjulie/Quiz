@@ -110,6 +110,7 @@ namespace Quiz
             switch (item.GetType().Name)
             {
                case "Adverb":
+               case "Phrase":
                   itemControl = new SimpleTranslationControl();
                   break;
 

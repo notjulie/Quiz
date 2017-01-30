@@ -78,6 +78,8 @@
     <Compile Include="QuizException.cs" />
     <Compile Include="XmlModel\Adverb.cs" />
     <Compile Include="XmlModel\Adverbs.cs" />
+    <Compile Include="XmlModel\Phrase.cs" />
+    <Compile Include="XmlModel\Phrases.cs" />
     <Compile Include="XmlModel\VerbConjugation.cs" />
     <Compile Include="XMLLoader.cs" />
     <Page Include="Controls\SimpleTranslationControl.xaml">
@@ -144,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="XML\Adverbs.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Phrases.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
