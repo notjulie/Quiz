@@ -2,6 +2,10 @@
 <Adverbs>
   <AdverbList>
     <Adverb
+      English="enough"
+      Italian="abbastanza"
+      />
+    <Adverb
       English="maybe"
       Italian="forse"
       />

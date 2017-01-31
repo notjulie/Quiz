@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Alphabet.cs" />
     <Compile Include="Controls\IUserEntryControl.cs" />
     <Compile Include="Controls\SimpleTranslationControl.xaml.cs">
       <DependentUpon>SimpleTranslationControl.xaml</DependentUpon>
@@ -78,6 +79,9 @@
     <Compile Include="QuizException.cs" />
     <Compile Include="XmlModel\Adverb.cs" />
     <Compile Include="XmlModel\Adverbs.cs" />
+    <Compile Include="XmlModel\Gender.cs" />
+    <Compile Include="XmlModel\Noun.cs" />
+    <Compile Include="XmlModel\Nouns.cs" />
     <Compile Include="XmlModel\Phrase.cs" />
     <Compile Include="XmlModel\Phrases.cs" />
     <Compile Include="XmlModel\VerbConjugation.cs" />
@@ -149,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="XML\Phrases.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Nouns.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

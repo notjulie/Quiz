@@ -13,6 +13,7 @@ namespace Quiz
       private Random random = new Random();
       private PresentIndicative pi = XMLLoader.Load<PresentIndicative>("PresentIndicative.xml");
       private Adverbs adverbs = XMLLoader.Load<Adverbs>("Adverbs.xml");
+      private Nouns nouns = XMLLoader.Load<Nouns>("Nouns.xml");
       private Phrases phrases = XMLLoader.Load<Phrases>("Phrases.xml");
       private List<object> allItems = new List<object>();
 
@@ -21,6 +22,7 @@ namespace Quiz
          allItems.AddRange(pi.VerbConjugations);
          allItems.AddRange(adverbs.AdverbList);
          allItems.AddRange(phrases.PhraseList);
+         allItems.AddRange(nouns.NounList);
       }
 
       public object GetRandomItem()

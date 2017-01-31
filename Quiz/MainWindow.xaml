@@ -4,6 +4,9 @@
         xmlns:controls="clr-namespace:Quiz.Controls"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ContentControl Name="itemContainer"/>
+        <StackPanel>
+            <ContentControl Name="itemContainer"/>
+            <Button Name="buttonNext" Width="80" Margin="10">Next</Button>
+        </StackPanel>
     </Grid>
 </Window>

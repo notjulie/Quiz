@@ -40,11 +40,17 @@ namespace Quiz
          InitializeComponent();
       
          this.Loaded += MainWindow_Loaded;
+         buttonNext.Click += buttonNext_Click;
       }
 
       #endregion
 
       #region Event Handlers
+
+      void buttonNext_Click(object sender, RoutedEventArgs e)
+      {
+         NextQuestion();
+      }
 
       void itemTextEntryStateChanged(object sender, EventArgs e)
       {
@@ -57,11 +63,13 @@ namespace Quiz
                   break;
 
                case TextEntryState.Cheated:
-                  NextQuestion();
+                  buttonNext.IsEnabled = true;
+                  buttonNext.Focus();
                   break;
 
                case TextEntryState.Correct:
-                  NextQuestion();
+                  buttonNext.IsEnabled = true;
+                  buttonNext.Focus();
                   break;
             }
          }
@@ -75,7 +83,7 @@ namespace Quiz
             languageData = new LanguageData();
 
             // spew up a random item
-            ShowItem(languageData.GetRandomItem());
+            NextQuestion();
          }
          catch (Exception x)
          {
@@ -92,6 +100,9 @@ namespace Quiz
       {
          // spew up a random item
          ShowItem(languageData.GetRandomItem());
+
+         // disable the next button until they get it right
+         buttonNext.IsEnabled = false;
       }
 
       private void ShowItem(object item)
@@ -112,10 +123,21 @@ namespace Quiz
                case "Adverb":
                case "Phrase":
                   itemControl = new SimpleTranslationControl();
+                  itemControl.DataContext = item;
+                  break;
+
+               case "Noun":
+                  itemControl = new SimpleTranslationControl();
+                  Noun noun = (Noun)item;
+                  itemControl.DataContext = new { 
+                     English = "the " + noun.English,
+                     Italian = noun.TheItalian
+                  };
                   break;
 
                case "VerbConjugation":
                   itemControl = new VerbConjugationControl();
+                  itemControl.DataContext = item;
                   break;
 
                default:
@@ -126,7 +148,6 @@ namespace Quiz
             IUserEntryControl userEntryControl = itemControl as IUserEntryControl;
             if (userEntryControl != null)
                userEntryControl.TextEntryStateChanged += this.itemTextEntryStateChanged;
-            itemControl.DataContext = item;
             itemContainer.Content = itemControl;
          }
          catch (Exception e)

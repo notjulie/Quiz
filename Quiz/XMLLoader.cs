@@ -16,6 +16,8 @@ namespace Quiz
       {
          // get the PresentIndicative resource stream
          var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Quiz.XML." + fileName);
+         if (stream == null)
+            throw new QuizException("Error loading resource: " + fileName);
 
          // get our verbs
          XmlSerializer serializer = new XmlSerializer(

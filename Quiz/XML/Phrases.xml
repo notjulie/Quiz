@@ -2,6 +2,10 @@
 <Phrases>
   <PhraseList>
     <Phrase
+      English="as of now"
+      Italian="a partire da adesso"
+      />
+    <Phrase
       English="they are there"
       Italian="sono lì"
       />
