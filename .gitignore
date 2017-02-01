@@ -6,3 +6,7 @@
 /Quiz/obj/Debug
 /Quiz/bin/Debug
 /Quiz.v12.suo
+/Quiz/bin/x64/Debug
+/Quiz/obj/x64/Debug
+/ThirdParty/sqlite-netFx451-static-binary-bundle-x64-2013-1.0.104.0
+/ThirdParty/sqlite-netFx46-static-binary-bundle-x64-2015-1.0.104.0
