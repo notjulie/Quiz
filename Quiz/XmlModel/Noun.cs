@@ -10,7 +10,7 @@ namespace Quiz.XmlModel
    /// <summary>
    /// Class representation of XML Noun element
    /// </summary>
-   public class Noun
+   public class Noun : LanguageItem
    {
       /// <summary>
       /// Gets or sets the noun in English
@@ -40,6 +40,17 @@ namespace Quiz.XmlModel
       {
          get;
          set;
+      }
+
+      /// <summary>
+      /// Gets a key string that identifies this item within the collection it comes from
+      /// </summary>
+      public override string Key
+      {
+         get 
+         {
+            return English;
+         }
       }
 
       /// <summary>

@@ -10,7 +10,7 @@ namespace Quiz.XmlModel
    /// <summary>
    /// The class representation of the XML Adverb element
    /// </summary>
-   public class Adverb
+   public class Adverb : LanguageItem
    {
       /// <summary>
       /// Gets or sets the adverb in English
@@ -30,6 +30,17 @@ namespace Quiz.XmlModel
       {
          get;
          set;
+      }
+
+      /// <summary>
+      /// Gets a key string that identifies this item within the collection it comes from
+      /// </summary>
+      public override string Key
+      {
+         get 
+         {
+            return English;
+         }
       }
    }
 }

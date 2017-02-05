@@ -10,25 +10,69 @@ namespace Quiz
 {
    class LanguageData
    {
+      private class LanguageItemInfo
+      {
+         public LanguageItemInfo(LanguageItem item, LanguageItemCategory category)
+         {
+            this.Item = item;
+            this.Category = category;
+         }
+
+         public LanguageItem Item
+         {
+            get;
+            private set;
+         }
+
+         public LanguageItemCategory Category
+         {
+            get;
+            private set;
+         }
+
+      }
+
       private Random random = new Random();
-      private PresentIndicative pi = XMLLoader.Load<PresentIndicative>("PresentIndicative.xml");
-      private Adverbs adverbs = XMLLoader.Load<Adverbs>("Adverbs.xml");
-      private Nouns nouns = XMLLoader.Load<Nouns>("Nouns.xml");
-      private Phrases phrases = XMLLoader.Load<Phrases>("Phrases.xml");
-      private List<object> allItems = new List<object>();
+      private List<LanguageItemInfo> allItems = new List<LanguageItemInfo>();
+      private List<LanguageItemState> itemStates = new List<LanguageItemState>();
 
       public LanguageData()
       {
-         allItems.AddRange(pi.VerbConjugations);
-         allItems.AddRange(adverbs.AdverbList);
-         allItems.AddRange(phrases.PhraseList);
-         allItems.AddRange(nouns.NounList);
+         // load items
+         PresentIndicative pi = XMLLoader.Load<PresentIndicative>("PresentIndicative.xml");
+         Adverbs adverbs = XMLLoader.Load<Adverbs>("Adverbs.xml");
+         Nouns nouns = XMLLoader.Load<Nouns>("Nouns.xml");
+         Phrases phrases = XMLLoader.Load<Phrases>("Phrases.xml");
+
+         // add them to our collection
+         AddItems(pi.VerbConjugations, LanguageItemCategory.PresentIndicative);
+         AddItems(adverbs.AdverbList, LanguageItemCategory.Adverb);
+         AddItems(phrases.PhraseList, LanguageItemCategory.Phrase);
+         AddItems(nouns.NounList, LanguageItemCategory.Noun);
+
+         // get item states
+         foreach (var item in allItems)
+            itemStates.Add(GetLanguageItemState(item));
       }
 
-      public object GetRandomItem()
+      public LanguageItem GetRandomItem()
       {
          int nextIndex = random.Next(allItems.Count);
-         return allItems[nextIndex];
+         return allItems.ToArray()[nextIndex].Item;
+      }
+
+      private void AddItems(IEnumerable<LanguageItem> items, LanguageItemCategory category)
+      {
+         foreach (var item in items)
+            allItems.Add(
+               new LanguageItemInfo(item, category)
+               );
+      }
+
+      private LanguageItemState GetLanguageItemState(LanguageItemInfo itemInfo)
+      {
+         // for now just return a default
+         return new LanguageItemState(itemInfo.Category, itemInfo.Item.Key);
       }
    }
 }

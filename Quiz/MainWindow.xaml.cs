@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Quiz.DB;
 using Quiz.Controls;
 using Quiz.XmlModel;
 
@@ -27,7 +26,6 @@ namespace Quiz
       #region Private Fields
 
       private LanguageData languageData = null;
-      private Database database = null;
 
       #endregion
 
@@ -84,9 +82,6 @@ namespace Quiz
             // load our language data
             languageData = new LanguageData();
 
-            // open our database
-            database = Database.OpenOrCreate("Bleem.quiz");
-
             // spew up a random item
             NextQuestion();
          }
@@ -103,9 +98,6 @@ namespace Quiz
 
       private void NextQuestion()
       {
-         // figure out the next question to get
-         database.GetRandomQuestionID();
-
          // spew up a random item
          ShowItem(languageData.GetRandomItem());
 
@@ -113,7 +105,7 @@ namespace Quiz
          buttonNext.IsEnabled = false;
       }
 
-      private void ShowItem(object item)
+      private void ShowItem(LanguageItem item)
       {
          try
          {

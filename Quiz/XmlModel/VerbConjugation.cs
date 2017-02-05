@@ -10,8 +10,19 @@ namespace Quiz.XmlModel
    /// <summary>
    /// Class representation of the serializable VerbConjugation XML element
    /// </summary>
-   public class VerbConjugation
+   public class VerbConjugation : LanguageItem
    {
+      /// <summary>
+      /// Gets a key string that identifies this item within the collection it comes from
+      /// </summary>
+      public override string Key
+      {
+         get 
+         {
+            return Name;
+         }
+      }
+
       /// <summary>
       /// Gets or sets the verb name
       /// </summary>

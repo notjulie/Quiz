@@ -70,9 +70,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\ThirdParty\sqlite-netFx451-static-binary-bundle-x64-2013-1.0.104.0\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -102,12 +99,14 @@
     <Compile Include="Controls\VerbConjugationControl.xaml.cs">
       <DependentUpon>VerbConjugationControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DB\Database.cs" />
     <Compile Include="LanguageData.cs" />
     <Compile Include="QuizException.cs" />
     <Compile Include="XmlModel\Adverb.cs" />
     <Compile Include="XmlModel\Adverbs.cs" />
     <Compile Include="XmlModel\Gender.cs" />
+    <Compile Include="XmlModel\LanguageItem.cs" />
+    <Compile Include="XmlModel\LanguageItemCategory.cs" />
+    <Compile Include="XmlModel\LanguageItemState.cs" />
     <Compile Include="XmlModel\Noun.cs" />
     <Compile Include="XmlModel\Nouns.cs" />
     <Compile Include="XmlModel\Phrase.cs" />
